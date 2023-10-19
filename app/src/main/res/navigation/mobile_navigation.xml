@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_nawafil">
+
+    <fragment
+        android:id="@+id/nav_nawafil"
+        android:name="nh.nawafil.hidayatullah.release.ui.home.ui.nawafil.NawafilFragment"
+        android:label="Nawafil"
+        tools:layout="@layout/fragment_nawafil" >
+        <action
+            android:id="@+id/action_nav_nawafil_to_nav_profile"
+            app:destination="@id/nav_profile"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"/>
+        <action
+            android:id="@+id/action_nav_nawafil_to_nav_halaqah"
+            app:destination="@id/nav_halaqah"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_halaqah"
+        android:name="nh.nawafil.hidayatullah.release.ui.home.ui.halaqah.HalaqahFragment"
+        android:label="Halaqah"
+        tools:layout="@layout/fragment_halaqah" >
+        <action
+            android:id="@+id/action_nav_halaqah_to_nav_profile"
+            app:destination="@id/nav_profile"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"/>
+        <action
+            android:id="@+id/action_nav_halaqah_to_nav_nawafil"
+            app:destination="@id/nav_nawafil"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="nh.nawafil.hidayatullah.release.ui.home.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_nav_halaqah"
+            app:destination="@id/nav_halaqah"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+        <action
+            android:id="@+id/action_nav_profile_to_nav_nawafil"
+            app:destination="@id/nav_nawafil"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+</navigation>
