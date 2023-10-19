@@ -11,13 +11,13 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import nh.nawafil.hidayatullah.release.Constant.SPLASH_LOADING
+import nh.nawafil.hidayatullah.release.UserPreferences
 import nh.nawafil.hidayatullah.release.preferences.datastore.PreferencesModelFactory
-import nh.nawafil.hidayatullah.release.preferences.shared.UserPreferences
 import nh.nawafil.hidayatullah.release.databinding.ActivityMainBinding
 import nh.nawafil.hidayatullah.release.preferences.shared.PreferencesModel
+import nh.nawafil.hidayatullah.release.preferences.datastore.AppPreferences
 import nh.nawafil.hidayatullah.release.ui.first.FirstTimeActivity
 import nh.nawafil.hidayatullah.release.ui.home.HomeActivity
-import nh.nawafil.hidayatullah.release.preferences.datastore.AppPreferences
 
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")

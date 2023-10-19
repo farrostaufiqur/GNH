@@ -1,0 +1,122 @@
+<resources>
+    <string name="app_name">Gerakan Nawafil Hidayatulah</string>
+
+    <string name="chose_lang">Choose Your Language</string>
+    <string name="login_text">Login</string>
+    <string name="email">Email</string>
+    <string name="email_here">Your Email</string>
+    <string name="empty_name">Please enter your name</string>
+    <string name="empty_email">Please enter your email</string>
+    <string name="invalid_email">Email is invalid</string>
+    <string name="password">Password</string>
+    <string name="password_here">Your Password</string>
+    <string name="empty_password">Please enter your password</string>
+    <string name="not_same_password">Please enter your password</string>
+    <string name="enter">Enter</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="name_here">Your Name</string>
+    <string name="confirm_pass">Retype Password</string>
+    <string name="confirm_pass_here">Retype Your Password</string>
+    <string name="click_register">Didn\'t Have an Account? Register Here</string>
+    <string name="click_login">Have Registered? Login Here</string>
+
+    <string name="login_success">Login is Success</string>
+    <string name="login_failed">Login is failed</string>
+    <string name="unknown_problem">Unknown Problem</string>
+
+    <string name="pray_and_dzikir">Pray and Dzikir</string>
+    <string name="hijriah_calender">Hijriah Calendar</string>
+    <string name="murobbi_consultation">Murobbi Consultation</string>
+    <string name="qibla">Qibla</string>
+    <string name="tasbih">Tasbih</string>
+    <string name="article">Article &amp; News</string>
+    <string name="quran">Al Quran</string>
+    <string name="shalat">Shalat</string>
+    <string name="profile">Profile</string>
+    <string name="maximize_menus">Maximize</string>
+    <string name="minimize_menus">Minimize</string>
+
+    <string name="full">Full</string>
+    <string name="half">Half</string>
+    <string name="permit">Permit</string>
+    <string name="no">No</string>
+
+    <string name="nawafil">Daily Nawafil</string>
+
+    <string name="fardhu">Fardhu</string>
+    <string name="subuh">Subuh</string>
+    <string name="dzuhur">Dzuhur</string>
+    <string name="ashar">Ashar</string>
+    <string name="maghrib">Maghrib</string>
+    <string name="isya">Isya</string>
+
+    <string name="tahajjud">Tahajjud</string>
+    <string name="witir">Witir</string>
+
+    <string name="sunnah_rawatib">Sunnah Rawatib</string>
+    <string name="qo_subuh">Qobliyyah Subuh</string>
+    <string name="qo_dzuhur">Qobliyyah Dzuhur</string>
+    <string name="ba_dzuhur">Ba\'diyyah Dzuhur</string>
+    <string name="ba_maghrib">Ba\'diyyah Maghrib</string>
+    <string name="ba_isya">Ba\'diyyah Isya</string>
+
+    <string name="dzikir">Dzikir/Wirid</string>
+    <string name="morning_dzikir">Morning Dzikir</string>
+    <string name="evening_dzikir">Evening Dzikir</string>
+    <string name="night_dzikir">Night Dzikir</string>
+
+    <string name="other">Other</string>
+    <string name="tilawah_quran">Tilawah Quran</string>
+    <string name="infaq">Infaq</string>
+    <string name="salat_dhuha">Salat Dhuha</string>
+    <string name="preaching">Fardiyah Preaching</string>
+
+    <string name="submit">Submit</string>
+
+    <string name="bot_nav_quran">Al Quran</string>
+    <string name="bot_nav_shalat">Shalat</string>
+    <string name="bot_nav_home">Home</string>
+    <string name="bot_nav_article">Article</string>
+    <string name="bot_nav_profile">Profile</string>
+
+    <string name="welcome">Welcome to Nawafil Hidayatullah App</string>
+    <string name="app_desc">Applications that provide information services and support daily worship activities</string>
+    <string name="guest">Without Account</string>
+
+    <string name="retry">Retry</string>
+
+    <string name="date_asc">Date ↑</string>
+    <string name="date_desc">Date ↓</string>
+    <string name="name_asc">Name ↑</string>
+    <string name="name_desc">Name ↓</string>
+    <string name="created_asc">Created ↑</string>
+    <string name="created_desc">Created ↓</string>
+    <!--<string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>-->
+
+    <string name="todo">TODO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+</resources>

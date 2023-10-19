@@ -13,11 +13,11 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import nh.nawafil.hidayatullah.release.UserPreferences
 import nh.nawafil.hidayatullah.release.databinding.FragmentProfileBinding
 import nh.nawafil.hidayatullah.release.preferences.datastore.AppPreferences
 import nh.nawafil.hidayatullah.release.preferences.datastore.PreferencesModelFactory
 import nh.nawafil.hidayatullah.release.preferences.shared.PreferencesModel
-import nh.nawafil.hidayatullah.release.preferences.shared.UserPreferences
 import nh.nawafil.hidayatullah.release.ui.splash.MainActivity
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")

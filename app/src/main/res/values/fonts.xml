@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--regular, 16-10sp-->
+    <style name="regular_16sp" >
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="regular_12sp" >
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="regular_10sp" >
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!--medium, 20-10sp-->
+    <style name="medium_20sp" >
+        <item name="android:fontFamily">@font/medium</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+    <style name="medium_16sp" >
+        <item name="android:fontFamily">@font/medium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="medium_12sp" >
+        <item name="android:fontFamily">@font/medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="medium_10sp" >
+        <item name="android:fontFamily">@font/medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!--bold, 36-10sp-->
+    <style name="bold_36sp" >
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">38sp</item>
+    </style>
+    <style name="bold_24sp" >
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+    <style name="bold_20sp" >
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+    <style name="bold_16sp" >
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="bold_12sp" >
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="bold_10sp" >
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="bold_12sp_white" >
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>
