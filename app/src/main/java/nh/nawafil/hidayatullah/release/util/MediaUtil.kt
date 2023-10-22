@@ -7,7 +7,9 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
+import android.os.Build
 import android.os.Environment
+import androidx.annotation.RequiresApi
 import nh.nawafil.hidayatullah.release.R
 import java.io.*
 import java.text.SimpleDateFormat
@@ -97,4 +99,23 @@ fun reduceFileImage(file: File): File {
     bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
 
     return file
+}
+fun encodeImageBitmap(bm: Bitmap): String? {
+    val baos = ByteArrayOutputStream()
+    bm.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+    val b = baos.toByteArray()
+    return android.util.Base64.encodeToString(b, android.util.Base64.DEFAULT)
+}
+fun encodeImage(file: File): String? {
+    var fis: FileInputStream? = null
+    try {
+        fis = FileInputStream(file)
+    } catch (e: FileNotFoundException) {
+        e.printStackTrace()
+    }
+    val bm = BitmapFactory.decodeStream(fis)
+    val baos = ByteArrayOutputStream()
+    bm.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+    val b = baos.toByteArray()
+    return android.util.Base64.encodeToString(b, android.util.Base64.DEFAULT)
 }

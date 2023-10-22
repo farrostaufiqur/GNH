@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class NawafilResponseSingle(
 
 	@field:SerializedName("data")
-	val data: Data? = null,
+	val data: NawafilSingleItem? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
@@ -14,7 +14,7 @@ data class NawafilResponseSingle(
 	val status: Int? = null
 )
 
-data class Data(
+data class NawafilSingleItem(
 
 	@field:SerializedName("date")
 	val date: String? = null,

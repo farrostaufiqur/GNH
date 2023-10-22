@@ -13,7 +13,7 @@ class ApiConfig {
                 .addInterceptor(loggingInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://nawafilonline.my.id/api/")
+                .baseUrl("https://my/private/link/")//private link
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

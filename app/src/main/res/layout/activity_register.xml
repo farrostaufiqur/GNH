@@ -54,20 +54,56 @@
             app:layout_constraintRight_toRightOf="@id/rectRegist"
             app:layout_constraintTop_toTopOf="@id/rectRegist" />
 
+        <ImageView
+            android:id="@+id/iv_register_photo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="@+id/tvRegist"
+            app:layout_constraintTop_toBottomOf="@+id/tvRegist"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/bt_camera"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/secondary_rect_rounded"
+            android:text="Camera"
+            app:icon="@drawable/baseline_photo_camera_24"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_register_photo"
+            app:layout_constraintEnd_toEndOf="@+id/bt_gallery"
+            app:layout_constraintStart_toStartOf="@+id/bt_gallery"
+            app:layout_constraintTop_toTopOf="@id/iv_register_photo"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/bt_gallery"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:background="@drawable/secondary_rect_rounded"
+            android:text="Gallery"
+            app:icon="@drawable/baseline_photo_library_24"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_register_photo"
+            app:layout_constraintLeft_toRightOf="@id/iv_register_photo"
+            app:layout_constraintTop_toTopOf="@id/iv_register_photo"
+            app:layout_constraintVertical_bias="1.0" />
+
         <TextView
             android:id="@+id/tvNameRegist"
             style="@style/medium_16sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:text="@string/name"
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="@+id/tvRegist"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="@id/rectRegist"
-            app:layout_constraintRight_toRightOf="@id/rectRegist"
             app:layout_constraintStart_toStartOf="@+id/tvRegist"
-            app:layout_constraintTop_toBottomOf="@id/tvRegist" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_register_photo" />
 
         <EditText
             android:id="@+id/etNameRegist"
@@ -86,12 +122,12 @@
             app:layout_constraintTop_toBottomOf="@id/tvNameRegist" />
 
         <TextView
-            android:id="@+id/tvEmailRegist"
+            android:id="@+id/tvUsernameRegist"
             style="@style/medium_16sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/email"
+            android:text="Username"
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="@+id/tvRegist"
             app:layout_constraintLeft_toLeftOf="@id/rectRegist"
@@ -100,19 +136,19 @@
             app:layout_constraintTop_toBottomOf="@id/etNameRegist" />
 
         <EditText
-            android:id="@+id/etEmailRegist"
+            android:id="@+id/etUsernameRegist"
             style="@style/regular_16sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="@string/email_here"
-            android:inputType="textEmailAddress"
+            android:hint="Your username"
+            android:inputType="textVisiblePassword|textNoSuggestions"
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="@+id/tvRegist"
             app:layout_constraintLeft_toLeftOf="@id/rectRegist"
             app:layout_constraintRight_toRightOf="@id/rectRegist"
             app:layout_constraintStart_toStartOf="@+id/tvRegist"
-            app:layout_constraintTop_toBottomOf="@id/tvEmailRegist" />
+            app:layout_constraintTop_toBottomOf="@id/tvUsernameRegist" />
 
         <TextView
             android:id="@+id/tvPasswordRegist"
@@ -126,7 +162,7 @@
             app:layout_constraintLeft_toLeftOf="@id/rectRegist"
             app:layout_constraintRight_toRightOf="@id/rectRegist"
             app:layout_constraintStart_toStartOf="@+id/tvRegist"
-            app:layout_constraintTop_toBottomOf="@id/etEmailRegist" />
+            app:layout_constraintTop_toBottomOf="@id/etUsernameRegist" />
 
         <EditText
             android:id="@+id/etPasswordRegist"

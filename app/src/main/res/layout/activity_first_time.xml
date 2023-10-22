@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@id/btSignup" />
 
     <Button
-        visi
+        android:visibility="gone"
         android:id="@+id/btGuest"
         style="@style/bold_12sp"
         android:layout_width="0dp"

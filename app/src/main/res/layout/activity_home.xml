@@ -7,7 +7,7 @@
     tools:context=".ui.home.HomeActivity">
 
     <ProgressBar
-        android:id="@+id/pbHome"
+        android:id="@+id/pb_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -15,172 +15,28 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toTopOf="@id/bot_nav"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <!--Your comment
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/container"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"/>-->
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bot_nav"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-        <carbon.widget.ImageView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@color/primary_green"
-            app:carbon_elevation="10dp"
-            app:carbon_elevationShadowColor="@color/primary_green"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="5dp"
-            android:elevation="10dp"
-            android:gravity="center_horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent">
-            <LinearLayout
-                android:id="@+id/menu_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
-                <carbon.widget.Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    app:carbon_elevation="5dp"
-                    app:carbon_cornerRadius="15dp"
-                    app:carbon_elevationShadowColor="@color/secondary_green"
-                    android:background="@drawable/bot_nav_quran"/>
-                <TextView
-                    style="@style/bold_12sp"
-                    android:textColor="@color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/bot_nav_quran"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/menu_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
-                <carbon.widget.Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    app:carbon_elevation="5dp"
-                    app:carbon_cornerRadius="15dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    app:carbon_elevationShadowColor="@color/secondary_green"
-                    android:background="@drawable/bot_nav_shalat"/>
-                <TextView
-                    style="@style/bold_12sp"
-                    android:textColor="@color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/bot_nav_shalat"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
-                <View
-                    android:layout_width="80dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:textColor="@color/white"
-                    style="@style/bold_12sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/bot_nav_home"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/menu_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
-                <carbon.widget.Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    app:carbon_elevation="5dp"
-                    app:carbon_cornerRadius="15dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    app:carbon_elevationShadowColor="@color/secondary_green"
-                    android:background="@drawable/bot_nav_artikel"/>
-                <TextView
-                    android:textColor="@color/white"
-                    style="@style/bold_12sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/bot_nav_article"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/menu_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
-                <carbon.widget.Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    app:carbon_elevation="5dp"
-                    app:carbon_cornerRadius="15dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    app:carbon_elevationShadowColor="@color/secondary_green"
-                    android:background="@drawable/bot_nav_profil"/>
-                <TextView
-                    android:textColor="@color/white"
-                    style="@style/bold_12sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/bot_nav_profile"/>
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <carbon.widget.Button
-        android:id="@+id/bot_nav_home"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/bot_nav_home"
-        app:carbon_cornerRadius="30dp"
-        android:elevation="15dp"
-        app:carbon_elevationShadowColor="@color/secondary_green"
-        app:layout_constraintBottom_toBottomOf="@id/bot_nav"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

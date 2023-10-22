@@ -17,8 +17,8 @@ import nh.nawafil.hidayatullah.release.databinding.ActivityLoginBinding
 import nh.nawafil.hidayatullah.release.ui.first.FirstTimeActivity
 import nh.nawafil.hidayatullah.release.ui.register.RegisterActivity
 import nh.nawafil.hidayatullah.release.ui.splash.MainActivity
-import nh.nawafil.hidayatullah.release.util.AppPreferences
-import nh.nawafil.hidayatullah.release.PreferencesModelFactory
+import nh.nawafil.hidayatullah.release.preferences.datastore.AppPreferences
+import nh.nawafil.hidayatullah.release.preferences.datastore.PreferencesModelFactory
 import nh.nawafil.hidayatullah.release.util.isEmailValid
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")

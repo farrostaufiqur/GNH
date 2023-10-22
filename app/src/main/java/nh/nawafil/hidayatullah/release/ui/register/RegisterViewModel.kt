@@ -22,12 +22,16 @@ class RegisterViewModel : ViewModel() {
     private val _message = MutableLiveData<String?>()
     val message: MutableLiveData<String?> = _message
 
-    fun register(name: String, email: String, password: String){
+    fun register(name: String, username: String, password: String, image: String? = null){
         viewModelScope.launch {
             val params = HashMap<String?, String?>()
             params["name"] = name
-            params["email"] = email
+            params["username"] = username
             params["password"] = password
+            if (image != null){
+                params["image"] = image
+                params["ext"] = "jpeg"
+            }
 
             _isLoading.value = true
             _isSuccess.value = null
@@ -40,15 +44,15 @@ class RegisterViewModel : ViewModel() {
                     _isLoading.value = false
                     if (response.isSuccessful) {
                         when (response.body()?.status) {
-                            1 -> {
+                            200 -> {
                                 _message.value = "Register is Success"
                                 _isSuccess.value = true
                             }
-                            2 -> {
+                            409 -> {
                                 _isSuccess.value = false
                                 _message.value = "Account is Already Registered"
                             }
-                            0 -> {
+                            404 -> {
                                 _isSuccess.value = false
                                 _message.value = "Register is Failed"
                             }

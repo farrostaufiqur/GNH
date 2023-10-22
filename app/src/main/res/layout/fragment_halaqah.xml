@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.ui.halaqah.HalaqahFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="-8dp"
+            android:background="@drawable/primary_rect_rounded"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title_count_halaqah"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title_nama_halaqah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="Nama Halaqah"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title_id_halaqah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID Halaqah"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_nama_halaqah"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_nama_halaqah" />
+
+        <TextView
+            android:id="@+id/tv_title_murobbi_halaqah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Murobbi/Mutarobbi"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_id_halaqah"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_id_halaqah" />
+
+        <TextView
+            android:id="@+id/tv_title_date_created_halaqah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Dibuat"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_murobbi_halaqah"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_murobbi_halaqah" />
+
+        <TextView
+            android:id="@+id/tv_title_count_halaqah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jumlah Anggota"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_date_created_halaqah"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_date_created_halaqah" />
+
+        <TextView
+            android:id="@+id/tv_name_halaqah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title_nama_halaqah"
+            app:layout_constraintStart_toEndOf="@+id/tv_title_murobbi_halaqah"
+            app:layout_constraintTop_toTopOf="@+id/tv_title_nama_halaqah"
+            tools:text="Contoh Nama Halaqah" />
+
+        <TextView
+            android:id="@+id/tv_id_halaqah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title_id_halaqah"
+            app:layout_constraintStart_toStartOf="@+id/tv_name_halaqah"
+            app:layout_constraintTop_toTopOf="@+id/tv_title_id_halaqah"
+            tools:text="10 karakter acak" />
+
+        <TextView
+            android:id="@+id/tv_murobbi_halaqah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title_murobbi_halaqah"
+            app:layout_constraintStart_toStartOf="@+id/tv_id_halaqah"
+            app:layout_constraintTop_toTopOf="@+id/tv_title_murobbi_halaqah"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:id="@+id/tv_date_created_halaqah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title_date_created_halaqah"
+            app:layout_constraintStart_toStartOf="@+id/tv_name_halaqah"
+            app:layout_constraintTop_toTopOf="@+id/tv_title_date_created_halaqah"
+            tools:text="@tools:sample/date/mmddyy" />
+
+        <TextView
+            android:id="@+id/tv_count_halaqah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title_count_halaqah"
+            app:layout_constraintStart_toStartOf="@+id/tv_name_halaqah"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_date_created_halaqah"
+            tools:text="0" />
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_bg">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_title_rv_halaqah_name"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_title_rv_halaqah_count"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_title_rv_halaqah_count" />
+
+                <TextView
+                    android:id="@+id/tv_title_rv_halaqah_date_join"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Date Joined"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_title_rv_halaqah_count"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_title_rv_halaqah_name"
+                    app:layout_constraintStart_toEndOf="@+id/tv_title_rv_halaqah_name"
+                    app:layout_constraintTop_toTopOf="@+id/tv_title_rv_halaqah_count" />
+
+                <TextView
+                    android:id="@+id/tv_title_rv_halaqah_count"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/nawafil_count"
+                    android:textAlignment="center"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_title_rv_halaqah_date_join"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_halaqah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title_rv_halaqah_count"
+                    tools:listitem="@layout/item_halaqah" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

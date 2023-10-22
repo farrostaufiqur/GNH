@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.ui.nawafil.NawafilFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/base_card_view"
+        style="@style/Base.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/base_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/title_nawafil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary">
+
+                <View
+                    android:id="@+id/iv"
+                    android:layout_width="8dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="?attr/colorPrimaryVariant"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_nawafil_title"
+                    style="@style/medium_16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/nawafil"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/iv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/line_1"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="?attr/colorSecondary"
+                android:visibility="gone" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/info_nawafil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:visibility="gone">
+
+                <carbon.widget.ImageView
+                    android:id="@+id/ivFull"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/iya"
+                    app:layout_constraintBottom_toTopOf="@+id/tvFull"
+                    app:layout_constraintEnd_toStartOf="@+id/ivHalf"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvFull"
+                    style="@style/medium_12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/full"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/ivFull"
+                    app:layout_constraintStart_toStartOf="@+id/ivFull" />
+
+                <carbon.widget.ImageView
+                    android:id="@+id/ivHalf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/setengah_iya"
+                    app:layout_constraintBottom_toTopOf="@+id/tvHalf"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/tvHalf"
+                    style="@style/medium_12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/half"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/ivHalf"
+                    app:layout_constraintStart_toStartOf="@+id/ivHalf" />
+
+                <carbon.widget.ImageView
+                    android:id="@+id/ivPermit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/izin"
+                    app:layout_constraintBottom_toTopOf="@+id/tvPermit"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/tvPermit"
+                    style="@style/medium_12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/permit"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/ivPermit"
+                    app:layout_constraintStart_toStartOf="@+id/ivPermit" />
+
+                <carbon.widget.ImageView
+                    android:id="@+id/ivNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/tidak"
+                    app:layout_constraintBottom_toTopOf="@+id/tvNo"
+                    app:layout_constraintStart_toEndOf="@+id/ivPermit"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/tvNo"
+                    style="@style/medium_12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/no"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/ivNo"
+                    app:layout_constraintStart_toStartOf="@+id/ivNo" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintGuide_percent="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/line_2"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="?attr/colorSecondary" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tahajjud_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary">
+
+                <TextView
+                    android:id="@+id/tvTahajjudTitle"
+                    style="@style/medium_16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/tahajjud"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/arrow_tahajjud"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/right_arrow_white"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTahajjudTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvTahajjudTitle" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tahajjud_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorOnPrimary"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tvTahajjud"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="@string/tahajjud"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spTahajjud"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTahajjud"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvTahajjud"
+                    tools:listitem="@layout/item_spinner" />
+
+                <TextView
+                    android:id="@+id/tvWitir"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/witir"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTahajjud" />
+
+                <Spinner
+                    android:id="@+id/spWitir"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvWitir"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvWitir"
+                    tools:listitem="@layout/item_spinner" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/line_3"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="?attr/colorSecondary" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sunnah_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary">
+
+                <TextView
+                    android:id="@+id/tvSunnah"
+                    style="@style/medium_16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/sunnah_rawatib"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/arrow_sunnah"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/right_arrow_white"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSunnah"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvSunnah" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sunnah_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorOnPrimary"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tvQoSubuh"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="@string/qo_subuh"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spQoSubuh"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvQoSubuh"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvQoSubuh"
+                    tools:listitem="@layout/item_spinner" />
+
+                <TextView
+                    android:id="@+id/tvQoDzuhur"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/qo_dzuhur"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvQoSubuh" />
+
+                <Spinner
+                    android:id="@+id/spQoDzuhur"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvQoDzuhur"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvQoDzuhur"
+                    tools:listitem="@layout/item_spinner" />
+
+                <TextView
+                    android:id="@+id/tvBaDzuhur"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/ba_dzuhur"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvQoDzuhur" />
+
+                <Spinner
+                    android:id="@+id/spBaDzuhur"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvBaDzuhur"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvBaDzuhur"
+                    tools:listitem="@layout/item_spinner" />
+
+                <TextView
+                    android:id="@+id/tvBaMaghrib"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/ba_maghrib"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvBaDzuhur" />
+
+                <Spinner
+                    android:id="@+id/spBaMaghrib"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvBaMaghrib"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvBaMaghrib"
+                    tools:listitem="@layout/item_spinner" />
+
+                <TextView
+                    android:id="@+id/tvBaIsya"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/ba_isya"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvBaMaghrib" />
+
+                <Spinner
+                    android:id="@+id/spBaIsya"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvBaIsya"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvBaIsya"
+                    tools:listitem="@layout/item_spinner" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/line_4"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="?attr/colorSecondary" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dzikir_wirid_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary">
+
+                <TextView
+                    android:id="@+id/tv_dzikir_wirid"
+                    style="@style/medium_16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/dzikir"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/arrow_dzikir_wirid"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/right_arrow_white"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_dzikir_wirid"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_dzikir_wirid" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dzikir_wirid_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorOnPrimary"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tvMorningDzikir"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="@string/morning_dzikir"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spMorningDzikir"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvMorningDzikir"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvMorningDzikir"
+                    tools:listitem="@layout/item_spinner" />
+
+                <TextView
+                    android:id="@+id/tvEveningDzikir"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/evening_dzikir"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvMorningDzikir" />
+
+                <Spinner
+                    android:id="@+id/spEveningDzikir"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvEveningDzikir"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvEveningDzikir"
+                    tools:listitem="@layout/item_spinner" />
+
+                <TextView
+                    android:id="@+id/tvNightDzikir"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/night_dzikir"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvEveningDzikir" />
+
+                <Spinner
+                    android:id="@+id/spNightDzikir"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvNightDzikir"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvNightDzikir"
+                    tools:listitem="@layout/item_spinner" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/line_5"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="?attr/colorSecondary" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/other_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary">
+
+                <TextView
+                    android:id="@+id/tvOther"
+                    style="@style/medium_16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/other"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/arrow_other"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/right_arrow_white"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvOther"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvOther" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/other_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorOnPrimary"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tvTilawah"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="@string/tilawah_quran"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spTilawah"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTilawah"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvTilawah"
+                    tools:listitem="@layout/item_spinner" />
+
+                <TextView
+                    android:id="@+id/tvInfaq"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/infaq"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTilawah" />
+
+                <Spinner
+                    android:id="@+id/spInfaq"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvInfaq"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvInfaq"
+                    tools:listitem="@layout/item_spinner" />
+
+                <TextView
+                    android:id="@+id/tvDhuha"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/salat_dhuha"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvInfaq" />
+
+                <Spinner
+                    android:id="@+id/spDhuha"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvDhuha"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvDhuha"
+                    tools:listitem="@layout/item_spinner" />
+
+                <TextView
+                    android:id="@+id/tvDakwah"
+                    style="@style/medium_12sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/preaching"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDhuha" />
+
+                <Spinner
+                    android:id="@+id/spDakwah"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/white"
+                    android:popupBackground="@drawable/primary_rect_rounded"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvDakwah"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvDakwah"
+                    tools:listitem="@layout/item_spinner" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btSubmit"
+                style="@style/bold_12sp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/primary_green"
+                android:text="@string/submit"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.core.widget.NestedScrollView>

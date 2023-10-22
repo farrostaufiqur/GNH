@@ -1,18 +1,21 @@
 package nh.nawafil.hidayatullah.release.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import carbon.widget.ImageView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import nh.nawafil.hidayatullah.release.R
 import nh.nawafil.hidayatullah.release.databinding.ActivityHomeBinding
-import nh.nawafil.hidayatullah.release.ui.home.fragment.home.HomeFragment
 
 class HomeActivity : AppCompatActivity() {
     private var _binding: ActivityHomeBinding? = null
@@ -31,14 +34,26 @@ class HomeActivity : AppCompatActivity() {
 
         loading(true)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.commit {
-                setReorderingAllowed(true)
-                replace<HomeFragment>(R.id.container)
-            }
-        }
+        setupNavBar()
         setupActionBar()
         loading(false)
+    }
+
+    private fun setupNavBar() {
+        val navView: BottomNavigationView? = binding?.navView
+
+        val navController = findNavController(R.id.nav_host_fragment)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_nawafil, R.id.nav_halaqah, R.id.nav_profile
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView?.setupWithNavController(navController)
+
+        Log.d(TAG, "Selected: ${navView?.selectedItemId}")
     }
 
     private fun setupActionBar(){
@@ -76,5 +91,9 @@ class HomeActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    companion object{
+        const val TAG = "HomeActivity"
     }
 }
