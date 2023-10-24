@@ -7,9 +7,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
-import android.os.Build
 import android.os.Environment
-import androidx.annotation.RequiresApi
 import nh.nawafil.hidayatullah.release.R
 import java.io.*
 import java.text.SimpleDateFormat
@@ -82,30 +80,6 @@ fun uriToFile(selectedImg: Uri, context: Context): File {
     return myFile
 }
 
-fun reduceFileImage(file: File): File {
-    val bitmap = BitmapFactory.decodeFile(file.path)
-
-    var compressQuality = 90
-    var streamLength: Int
-
-    do {
-        val bmpStream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
-        val bmpPicByteArray = bmpStream.toByteArray()
-        streamLength = bmpPicByteArray.size
-        compressQuality -= 5
-    } while (streamLength > 1000000)
-
-    bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
-
-    return file
-}
-fun encodeImageBitmap(bm: Bitmap): String? {
-    val baos = ByteArrayOutputStream()
-    bm.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-    val b = baos.toByteArray()
-    return android.util.Base64.encodeToString(b, android.util.Base64.DEFAULT)
-}
 fun encodeImage(file: File): String? {
     var fis: FileInputStream? = null
     try {
@@ -113,9 +87,21 @@ fun encodeImage(file: File): String? {
     } catch (e: FileNotFoundException) {
         e.printStackTrace()
     }
+
     val bm = BitmapFactory.decodeStream(fis)
+    var compressQuality = 100
+    var streamLength: Int
+
+    do {
+        val bmpStream = ByteArrayOutputStream()
+        bm.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+        val bmpPicByteArray = bmpStream.toByteArray()
+        streamLength = bmpPicByteArray.size
+        compressQuality -= 10
+    } while (streamLength > 1000000)
+
     val baos = ByteArrayOutputStream()
-    bm.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+    bm.compress(Bitmap.CompressFormat.JPEG, compressQuality, baos)
     val b = baos.toByteArray()
     return android.util.Base64.encodeToString(b, android.util.Base64.DEFAULT)
 }

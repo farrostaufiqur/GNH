@@ -1,5 +1,6 @@
 package nh.nawafil.hidayatullah.release.data.network.api
 
+import nh.nawafil.hidayatullah.release.LinkWebServer.LINK_WEB_SERVER
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -13,7 +14,7 @@ class ApiConfig {
                 .addInterceptor(loggingInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://my/private/link/")//private link
+                .baseUrl(LINK_WEB_SERVER)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

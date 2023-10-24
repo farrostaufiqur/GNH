@@ -21,7 +21,8 @@
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/iv_desc_logo" />
 
         <View
             android:id="@+id/rectLogin"
@@ -47,36 +48,37 @@
             android:layout_marginLeft="32dp"
             android:layout_marginTop="24dp"
             android:layout_marginRight="32dp"
-            android:text="@string/login_text"
+            android:text="@string/login"
             android:textAlignment="center"
             app:layout_constraintLeft_toLeftOf="@id/rectLogin"
             app:layout_constraintRight_toRightOf="@id/rectLogin"
             app:layout_constraintTop_toTopOf="@id/rectLogin" />
 
         <TextView
-            android:id="@+id/tvEmailLogin"
+            android:id="@+id/tv_username_login"
             style="@style/medium_16sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/email"
+            android:text="@string/username"
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="@+id/tvLogin"
             app:layout_constraintStart_toStartOf="@+id/tvLogin"
             app:layout_constraintTop_toBottomOf="@id/tvLogin" />
 
         <EditText
-            android:id="@+id/etEmailLogin"
+            android:autofillHints="username"
+            android:id="@+id/et_username_login"
             style="@style/regular_16sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="@string/email_here"
+            android:hint="@string/username_here"
             android:inputType="textEmailAddress"
             android:textAlignment="textStart"
-            app:layout_constraintEnd_toEndOf="@+id/tvEmailLogin"
-            app:layout_constraintStart_toStartOf="@+id/tvEmailLogin"
-            app:layout_constraintTop_toBottomOf="@id/tvEmailLogin" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_username_login"
+            app:layout_constraintStart_toStartOf="@+id/tv_username_login"
+            app:layout_constraintTop_toBottomOf="@id/tv_username_login" />
 
         <TextView
             android:id="@+id/tvPasswordLogin"
@@ -86,9 +88,9 @@
             android:layout_marginTop="16dp"
             android:text="@string/password"
             android:textAlignment="textStart"
-            app:layout_constraintEnd_toEndOf="@+id/etEmailLogin"
-            app:layout_constraintStart_toStartOf="@+id/etEmailLogin"
-            app:layout_constraintTop_toBottomOf="@id/etEmailLogin" />
+            app:layout_constraintEnd_toEndOf="@+id/et_username_login"
+            app:layout_constraintStart_toStartOf="@+id/et_username_login"
+            app:layout_constraintTop_toBottomOf="@id/et_username_login" />
 
         <EditText
             android:id="@+id/etPasswordLogin"
@@ -100,7 +102,8 @@
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="@+id/tvPasswordLogin"
             app:layout_constraintStart_toStartOf="@+id/tvPasswordLogin"
-            app:layout_constraintTop_toBottomOf="@id/tvPasswordLogin" />
+            app:layout_constraintTop_toBottomOf="@id/tvPasswordLogin"
+            android:autofillHints="password" />
 
         <Button
             android:id="@+id/btLogin"
@@ -108,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:backgroundTint="@color/secondary_green"
-            android:text="@string/login_text"
+            android:text="@string/login"
             app:layout_constraintEnd_toEndOf="@+id/etPasswordLogin"
             app:layout_constraintStart_toStartOf="@+id/etPasswordLogin"
             app:layout_constraintTop_toBottomOf="@id/etPasswordLogin" />

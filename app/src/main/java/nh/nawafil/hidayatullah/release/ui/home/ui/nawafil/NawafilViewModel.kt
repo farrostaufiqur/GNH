@@ -10,7 +10,6 @@ import nh.nawafil.hidayatullah.release.data.network.api.ApiConfig
 import nh.nawafil.hidayatullah.release.data.network.response.ApiResponse
 import nh.nawafil.hidayatullah.release.data.network.response.NawafilResponseSingle
 import nh.nawafil.hidayatullah.release.data.network.response.NawafilSingleItem
-import nh.nawafil.hidayatullah.release.preferences.datastore.AppPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -75,19 +74,21 @@ class NawafilViewModel : ViewModel() {
                     if (response.isSuccessful) {
                         when (response.body()?.status) {
                             200 -> {
-                                _getStatus.value = true
+                                _postStatus.value = true
                             }
                             404 -> {
-                                _getStatus.value = false
+                                _postStatus.value = false
                             }
                         }
                     } else {
+                        _postStatus.value = false
                         _message.value = "Unknown Problem"
                         Log.e(TAG, "onResponse: ${response.message()}")
                     }
                 }
 
                 override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+                    _postStatus.value = false
                     _message.value = "Unknown Problem"
                     Log.e(TAG, "onFailure: ${t.message.toString()}")
                 }

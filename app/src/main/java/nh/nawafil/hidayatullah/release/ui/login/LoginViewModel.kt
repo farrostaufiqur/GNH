@@ -23,10 +23,10 @@ class LoginViewModel (private val pref: AppPreferences) : ViewModel() {
     private val _message = MutableLiveData<String?>()
     val message: MutableLiveData<String?> = _message
 
-    fun login(email: String, password: String){
+    fun login(username: String, password: String){
         viewModelScope.launch {
             val params = HashMap<String?, String?>()
-            params["email"] = email
+            params["username"] = username
             params["password"] = password
 
             _isLoading.value = true
@@ -40,16 +40,19 @@ class LoginViewModel (private val pref: AppPreferences) : ViewModel() {
                     _isLoading.value = false
                     if (response.isSuccessful) {
                         when (response.body()?.status) {
-                            1 -> {
-                                val responseData = response.body()!!.data
-                                saveInfo(responseData?.idUser, responseData?.token, responseData?.name, responseData?.email, responseData?.idHalaqah
-                                )
+                            200 -> {
+                                val responseBody = response.body()!!.data
+                                saveInfo(responseBody?.id, responseBody?.token)
                                 _message.value = "Login Success"
                                 _isSuccess.value = true
                             }
-                            0 -> {
+                            404 -> {
                                 _isSuccess.value = false
-                                _message.value = "Login Failed"
+                                _message.value = "Wrong password or Username not found"
+                            }
+                            403 -> {
+                                _isSuccess.value = false
+                                _message.value = "Wrong password or Username not found"
                             }
                         }
                     } else {
@@ -69,16 +72,10 @@ class LoginViewModel (private val pref: AppPreferences) : ViewModel() {
         }
     }
 
-    fun saveInfo(id: String?, token: String?, name: String?, email: String?, halaqah: String?){
+    fun saveInfo(id: String?, token: String?){
         viewModelScope.launch {
-            pref.saveUserName(name!!)
-            pref.saveUserEmail(email!!)
-            if (halaqah != null){
-                pref.saveUserHalaqah(halaqah)
-            }
             pref.saveUserId(id!!)
             pref.saveUserToken(token!!)
-            pref.saveUserTable(setOf("0","0","0","0","0","0","0"))
         }
     }
 

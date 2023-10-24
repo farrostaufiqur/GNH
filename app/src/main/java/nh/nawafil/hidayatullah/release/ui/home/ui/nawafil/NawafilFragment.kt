@@ -1,8 +1,6 @@
 package nh.nawafil.hidayatullah.release.ui.home.ui.nawafil
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,15 +52,16 @@ class NawafilFragment : Fragment(), OnItemSelectedListener{
         setupSpinnerValue()
     }
 
-    @SuppressLint("SetTextI18n")
     private fun setupView(){
         binding.apply {
-            paramsPost["date"] = currentDate
-            paramsGet["date"] = currentDate
-            tvNawafilTitle.text = "Nawafil Harian : $currentDate"
-
+            tvNawafilTitle.text = buildString {
+                append(getString(R.string.tv_nawafil_title_text))
+                append(currentDate)
+            }
             btSubmit.setOnClickListener {
-                Log.d(TAG,"Nawafil : $paramsPost")
+                paramsPost["id"] = userId
+                paramsPost["token"] = userToken
+                paramsPost["date"] = currentDate
                 viewModel.postNawafil(paramsPost)
             }
         }
@@ -78,6 +77,9 @@ class NawafilFragment : Fragment(), OnItemSelectedListener{
     }
 
     private fun setupSpinnerValue(){
+        paramsGet["id"] = userId
+        paramsGet["token"] = userToken
+        paramsGet["date"] = currentDate
         viewModel.getNawafil(paramsGet)
         viewModel.getStatus.observe(viewLifecycleOwner){
             if (it == true){
@@ -89,9 +91,9 @@ class NawafilFragment : Fragment(), OnItemSelectedListener{
                         nawafil.dzikirSore!!.toInt(), nawafil.dzikirMalam!!.toInt(), nawafil.quran!!.toInt(),
                         nawafil.infaq!!.toInt(), nawafil.dhuha!!.toInt(), nawafil.dakwah!!.toInt())
 
-                }else{
-                    setSpinnerSelect()
                 }
+            }else{
+                setSpinnerSelect()
             }
         }
     }
@@ -278,7 +280,7 @@ class NawafilFragment : Fragment(), OnItemSelectedListener{
         userToken = prefModel.token
 
         val time = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ROOT)
+        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.ROOT)
         currentDate = formatter.format(time)
     }
 
@@ -287,17 +289,8 @@ class NawafilFragment : Fragment(), OnItemSelectedListener{
             text, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    companion object{
-        const val TAG = "NawafilFragment"
-    }
-
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        when (view?.id){
+        when (parent?.id){
             R.id.spTahajjud -> paramsPost["tahajjud"] = position
             R.id.spWitir -> paramsPost["witir"] = position
             R.id.spQoSubuh -> paramsPost["qo_subuh"] = position
@@ -316,4 +309,13 @@ class NawafilFragment : Fragment(), OnItemSelectedListener{
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {}
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    companion object{
+        const val TAG = "NawafilFragment"
+    }
 }

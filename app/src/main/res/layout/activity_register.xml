@@ -21,7 +21,8 @@
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/iv_desc_logo" />
 
         <View
             android:id="@+id/rectRegist"
@@ -55,6 +56,7 @@
             app:layout_constraintTop_toTopOf="@id/rectRegist" />
 
         <ImageView
+            android:background="@drawable/secondary_rect_rounded"
             android:id="@+id/iv_register_photo"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -62,7 +64,8 @@
             android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="@+id/tvRegist"
             app:layout_constraintTop_toBottomOf="@+id/tvRegist"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:src="@drawable/muslim"
+            android:contentDescription="@string/iv_preview" />
 
         <Button
             android:id="@+id/bt_camera"
@@ -70,7 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/secondary_rect_rounded"
-            android:text="Camera"
+            android:text="@string/camera"
             app:icon="@drawable/baseline_photo_camera_24"
             app:layout_constraintBottom_toBottomOf="@+id/iv_register_photo"
             app:layout_constraintEnd_toEndOf="@+id/bt_gallery"
@@ -83,9 +86,9 @@
             style="@style/Widget.MaterialComponents.Button.Icon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:background="@drawable/secondary_rect_rounded"
-            android:text="Gallery"
+            android:text="@string/gallery"
             app:icon="@drawable/baseline_photo_library_24"
             app:layout_constraintBottom_toBottomOf="@+id/iv_register_photo"
             app:layout_constraintLeft_toRightOf="@id/iv_register_photo"
@@ -106,6 +109,7 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_register_photo" />
 
         <EditText
+            android:autofillHints="name"
             android:id="@+id/etNameRegist"
             style="@style/regular_16sp"
             android:layout_width="0dp"
@@ -127,7 +131,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Username"
+            android:text="@string/username"
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="@+id/tvRegist"
             app:layout_constraintLeft_toLeftOf="@id/rectRegist"
@@ -136,12 +140,13 @@
             app:layout_constraintTop_toBottomOf="@id/etNameRegist" />
 
         <EditText
+            android:autofillHints="username"
             android:id="@+id/etUsernameRegist"
             style="@style/regular_16sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Your username"
+            android:hint="@string/username_here"
             android:inputType="textVisiblePassword|textNoSuggestions"
             android:textAlignment="textStart"
             app:layout_constraintEnd_toEndOf="@+id/tvRegist"
@@ -151,6 +156,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvUsernameRegist" />
 
         <TextView
+            android:autofillHints="password"
             android:id="@+id/tvPasswordRegist"
             style="@style/medium_16sp"
             android:layout_width="0dp"
@@ -165,6 +171,7 @@
             app:layout_constraintTop_toBottomOf="@id/etUsernameRegist" />
 
         <EditText
+            android:autofillHints="password"
             android:id="@+id/etPasswordRegist"
             style="@style/medium_16sp"
             android:layout_width="0dp"
@@ -204,7 +211,8 @@
             app:layout_constraintLeft_toLeftOf="@id/rectRegist"
             app:layout_constraintRight_toRightOf="@id/rectRegist"
             app:layout_constraintStart_toStartOf="@+id/tvRegist"
-            app:layout_constraintTop_toBottomOf="@id/tvConfirmPassRegist" />
+            app:layout_constraintTop_toBottomOf="@id/tvConfirmPassRegist"
+            android:autofillHints="password" />
 
         <Button
             android:id="@+id/btRegist"

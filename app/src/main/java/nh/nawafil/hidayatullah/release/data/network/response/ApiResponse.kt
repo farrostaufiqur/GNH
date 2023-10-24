@@ -11,5 +11,5 @@ data class ApiResponse(
     val status: Int,
 
     @field:SerializedName("data")
-    val data: Int? = null
+    val data: String? = null
 )

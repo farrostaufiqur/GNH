@@ -1,9 +1,6 @@
 package nh.nawafil.hidayatullah.release.data.network.api
 
-import nh.nawafil.hidayatullah.release.data.network.response.ApiResponse
-import nh.nawafil.hidayatullah.release.data.network.response.NawafilResponse
-import nh.nawafil.hidayatullah.release.data.network.response.NawafilResponseSingle
-import nh.nawafil.hidayatullah.release.data.network.response.UserResponse
+import nh.nawafil.hidayatullah.release.data.network.response.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -51,4 +48,29 @@ interface ApiService {
     fun getNawafil(
         @FieldMap params: HashMap<String?, Any?>
     ): Call<NawafilResponseSingle>
+
+    //HALAQAH API
+    @FormUrlEncoded
+    @POST("halaqah/select")
+    fun getHalaqahGroup(
+        @FieldMap params: HashMap<String?, Any?>
+    ): Call<HalaqahGroupResponse>
+
+    @FormUrlEncoded
+    @POST("halaqah/select")
+    fun getHalaqahMember(
+        @FieldMap params: HashMap<String?, Any?>
+    ): Call<HalaqahMemberResponse>
+
+    @FormUrlEncoded
+    @POST("halaqah/create")
+    fun createHalaqah(
+        @FieldMap params: HashMap<String?, Any?>
+    ): Call<ApiResponse>
+
+    @FormUrlEncoded
+    @POST("halaqah/join")
+    fun joinHalaqah(
+        @FieldMap params: HashMap<String?, Any?>
+    ): Call<ApiResponse>
 }

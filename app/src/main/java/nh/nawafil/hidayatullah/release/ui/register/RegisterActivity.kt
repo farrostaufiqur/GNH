@@ -131,12 +131,11 @@ class RegisterActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) {
         if (it.resultCode == CAMERA_X) {
-            val myFile = it.data?.getSerializableExtra("picture") as File
+            @Suppress("DEPRECATION") val myFile = it.data?.getSerializableExtra("picture") as File
             val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
-            val img = reduceFileImage(myFile)
-            image = encodeImage(img)
+            image = encodeImage(myFile)
             val result = rotateBitmap(
-                BitmapFactory.decodeFile(img.path),
+                BitmapFactory.decodeFile(myFile.path),
                 isBackCamera
             )
 
@@ -148,7 +147,7 @@ class RegisterActivity : AppCompatActivity() {
         val intent = Intent()
         intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "image/*"
-        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        val chooser = Intent.createChooser(intent, getString(R.string.open_gallery))
         launcherIntentGallery.launch(chooser)
     }
 
@@ -158,8 +157,7 @@ class RegisterActivity : AppCompatActivity() {
         if (result.resultCode == RESULT_OK) {
             val selectedImg: Uri = result.data?.data as Uri
             val myFile = uriToFile(selectedImg, this)
-            val img = reduceFileImage(myFile)
-            image = encodeImage(img)
+            image = encodeImage(myFile)
             binding?.ivRegisterPhoto?.setImageURI(selectedImg)
         }
     }

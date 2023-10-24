@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
-import android.widget.TextView
 import nh.nawafil.hidayatullah.release.R
 
 class SpinnerAdapter (context: Context, private var images: IntArray) :
@@ -32,7 +31,6 @@ class SpinnerAdapter (context: Context, private var images: IntArray) :
 
     @SuppressLint("ViewHolder", "InflateParams")
     override fun getView(i: Int, view: View?, viewGroup: ViewGroup): View {
-
         val itemLayout = inflter.inflate(R.layout.item_spinner,null)
         val icon = itemLayout.findViewById<View>(R.id.ivSpinner) as ImageView?
         icon!!.setImageResource(images[i])

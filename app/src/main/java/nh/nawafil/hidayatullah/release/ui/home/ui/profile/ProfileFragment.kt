@@ -13,6 +13,8 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import nh.nawafil.hidayatullah.release.LinkWebServer.LINK_WEB_IMAGE
+import nh.nawafil.hidayatullah.release.R
 import nh.nawafil.hidayatullah.release.UserPreferences
 import nh.nawafil.hidayatullah.release.databinding.FragmentProfileBinding
 import nh.nawafil.hidayatullah.release.preferences.datastore.AppPreferences
@@ -54,8 +56,11 @@ class ProfileFragment : Fragment() {
 
     private fun setupView() {
         binding.apply {
-            val link = "https://nawafilonline.my.id/api/user/image/$userImage"
-            tvProfileName.text = "Hi, $userName"
+            val link = "$LINK_WEB_IMAGE$userImage"
+            tvProfileName.text = buildString {
+                append(getString(R.string.tv_profile_name_text))
+                append(userName)
+            }
             tvProfileUsername.text = userUsername
             tvProfileDateJoin.text = userDateJoin
             Glide.with(requireActivity())
@@ -85,7 +90,10 @@ class ProfileFragment : Fragment() {
         userName = prefModel.name
         userImage = prefModel.image
         userUsername = prefModel.username
-        userDateJoin = "Joined since: ${prefModel.dateJoin}"
+        userDateJoin = buildString {
+            append(getString(R.string.tv_profile_date_join_text))
+            append(prefModel.dateJoin)
+        }
     }
 
     private fun showToast(text: String) {

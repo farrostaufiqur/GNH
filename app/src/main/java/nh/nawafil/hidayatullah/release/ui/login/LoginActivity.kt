@@ -19,7 +19,6 @@ import nh.nawafil.hidayatullah.release.ui.register.RegisterActivity
 import nh.nawafil.hidayatullah.release.ui.splash.MainActivity
 import nh.nawafil.hidayatullah.release.preferences.datastore.AppPreferences
 import nh.nawafil.hidayatullah.release.preferences.datastore.PreferencesModelFactory
-import nh.nawafil.hidayatullah.release.util.isEmailValid
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
@@ -27,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
     private var _binding: ActivityLoginBinding? = null
     private val binding get() = _binding
     private lateinit var viewModel: LoginViewModel
-    private var email: String? = null
+    private var username: String? = null
     private var password: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,15 +62,14 @@ class LoginActivity : AppCompatActivity() {
     private fun setupAction() {
         binding?.apply {
             btLogin.setOnClickListener {
-                email = etEmailLogin.text.toString().trim()
+                username = etUsernameLogin.text.toString().trim()
                 password = etPasswordLogin.text.toString().trim()
                 when {
-                    email!!.isBlank() -> etEmailLogin.error = getString(R.string.empty_email)
-                    !email!!.isEmailValid() -> etEmailLogin.error = getString(R.string.invalid_email)
+                    username!!.isBlank() -> etUsernameLogin.error = getString(R.string.empty_username)
                     password!!.isBlank() -> etPasswordLogin.error = getString(R.string.empty_password)
                     else -> {
-                        Log.d(TAG, "Email: $email, Password: $password")
-                        viewModel.login(email!!, password!!)
+                        Log.d(TAG, "Email: $username, Password: $password")
+                        viewModel.login(username!!, password!!)
                     }
                 }
             }
@@ -105,13 +103,13 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString(EMAIL_KEY, email)
+        outState.putString(EMAIL_KEY, username)
         outState.putString(PASSWORD_KEY, password)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        email = savedInstanceState.getString(EMAIL_KEY)
+        username = savedInstanceState.getString(EMAIL_KEY)
         password = savedInstanceState.getString(PASSWORD_KEY)
     }
 

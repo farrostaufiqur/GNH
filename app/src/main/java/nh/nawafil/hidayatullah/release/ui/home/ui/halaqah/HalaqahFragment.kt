@@ -1,6 +1,5 @@
 package nh.nawafil.hidayatullah.release.ui.home.ui.halaqah
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,10 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import nh.nawafil.hidayatullah.release.preferences.shared.PreferencesModel
-import nh.nawafil.hidayatullah.release.preferences.shared.UserPreferences
+import nh.nawafil.hidayatullah.release.R
+import nh.nawafil.hidayatullah.release.UserPreferences
 import nh.nawafil.hidayatullah.release.data.network.response.HalaqahMemberItem
 import nh.nawafil.hidayatullah.release.databinding.FragmentHalaqahBinding
+import nh.nawafil.hidayatullah.release.preferences.shared.PreferencesModel
 import nh.nawafil.hidayatullah.release.ui.splash.MainActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,18 +25,13 @@ class HalaqahFragment : Fragment() {
     private var _binding: FragmentHalaqahBinding? = null
     private val binding get() = _binding!!
 
-    private var dateCreated: String? = null
-    private var name: String? = null
-    private var id: String? = null
-
     private var userId: String? = null
     private var userToken: String? = null
-    private var userHalaqah: String? = null
     private var currentDate: String? = null
 
+    private var halaqahId: String? = null
     private var halaqahName: String? = null
     private var halaqahDateCreated: String? = null
-    private var memberCount: Int = 0
 
     private lateinit var viewModel: HalaqahViewModel
     private lateinit var userPreferences: UserPreferences
@@ -50,14 +45,13 @@ class HalaqahFragment : Fragment() {
         setupViewModel()
         getUserData()
         getCurrentDate()
-        setupView()
-
+        viewModel.getMember(userId!!, userToken!!, halaqahId!!)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getHalaqahMember(userId, userToken, userHalaqah)
+        setupView()
         setupHalaqahList()
         viewModel.member.observe(this@HalaqahFragment){
             setupMemberData(it)
@@ -66,24 +60,25 @@ class HalaqahFragment : Fragment() {
 
     private fun setupView() {
         binding.apply {
-            tvHalaqahName.text = halaqahName
-            tvHalaqahDateCreated.text = halaqahDateCreated
+            tvNameHalaqah.text = halaqahName
+            tvIdHalaqah.text = halaqahId
+            tvDateCreatedHalaqah.text = halaqahDateCreated
             btCreate.setOnClickListener {
-                val name = etHalaqahName.text.toString()
+                val name = etCreateName.text.toString()
                 when {
-                    name.isBlank() -> etHalaqahName.error = "Halaqah Name is Empty"
+                    name.isBlank() -> etCreateName.error = getString(R.string.halaqah_name_empty)
                     else -> {
-                        viewModel.createHalaqah(userId, userToken, name)
+                        viewModel.createHalaqah(userId!!, userToken!!, name)
                     }
                 }
             }
 
-            btRequest.setOnClickListener {
-                val halaqah = etHalaqahId.text.toString()
+            btJoin.setOnClickListener {
+                val halaqah = etJoinId.text.toString()
                 when {
-                    halaqah.isBlank() -> etHalaqahId.error = "Halaqah ID is Empty"
+                    halaqah.isBlank() -> etJoinId.error = getString(R.string.halaqah_id_empty)
                     else -> {
-                        viewModel.requestHalaqah(userId, userToken, halaqah)
+                        viewModel.joinHalaqah(userId!!, userToken!!, halaqah)
                     }
                 }
             }
@@ -102,23 +97,22 @@ class HalaqahFragment : Fragment() {
             if (isHave){
                 halaqahListLayout.visibility = VISIBLE
                 halaqahReqLayout.visibility = GONE
-                infoLayout.visibility = VISIBLE
             }else{
                 halaqahListLayout.visibility = GONE
                 halaqahReqLayout.visibility = VISIBLE
-                infoLayout.visibility = GONE
             }
         }
 
     }
 
-    @SuppressLint("SetTextI18n")
     private fun getUserData(){
         userPreferences = UserPreferences(requireContext())
         prefModel = userPreferences.getUser()
+
         userId = prefModel.id
         userToken = prefModel.token
-        userHalaqah = prefModel.halaqahId
+
+        halaqahId = prefModel.halaqahId
         halaqahName = prefModel.halaqahName
         halaqahDateCreated = prefModel.halaqahDateCreated
         if (prefModel.halaqahId == ""){
@@ -128,10 +122,9 @@ class HalaqahFragment : Fragment() {
         }
     }
 
-    @SuppressLint("SimpleDateFormat")
-    fun getCurrentDate(){
+    private fun getCurrentDate(){
         val date = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("yyyy-MM-dd")
+        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.ROOT)
         currentDate = formatter.format(date)
     }
 
@@ -143,7 +136,7 @@ class HalaqahFragment : Fragment() {
         viewModel.authorized.observe(viewLifecycleOwner){
             //todo: auto logout if not auth
         }
-        viewModel.statusReqHalaqah.observe(viewLifecycleOwner){
+        viewModel.statusReq.observe(viewLifecycleOwner){
             if (it == true){
                 transToSplashScreen()
             }
@@ -175,14 +168,14 @@ class HalaqahFragment : Fragment() {
                         )
                     )
                     if (member.halaqahLevel == "high"){
-                        binding.tvAdminHalaqah.text = member.name
+                        binding.tvMurobbiHalaqah.text = member.name
                     }
                 }
             }
         }
         binding.apply {
             rvHalaqah.adapter = MemberListAdapter(list)
-            tvHalaqahMemberCount.text = (list.size).toString()
+            tvCountHalaqah.text = (list.size).toString()
         }
     }
 

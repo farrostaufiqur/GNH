@@ -2,7 +2,8 @@ package nh.nawafil.hidayatullah.release.ui.home
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
@@ -13,18 +14,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import carbon.widget.ImageView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import nh.nawafil.hidayatullah.release.R
 import nh.nawafil.hidayatullah.release.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
     private var _binding: ActivityHomeBinding? = null
     private val binding get() = _binding
-
-    private lateinit var title: LinearLayout
-    private lateinit var back: ImageView
-    private lateinit var text1: TextView
-    private lateinit var text2: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,51 +28,78 @@ class HomeActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         loading(true)
-
-        setupNavBar()
         setupActionBar()
+        setupNavBar()
         loading(false)
     }
 
     private fun setupNavBar() {
-        val navView: BottomNavigationView? = binding?.navView
-
         val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_nawafil, R.id.nav_halaqah, R.id.nav_profile
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        navView?.setupWithNavController(navController)
+        binding?.navView?.apply {
+            setupWithNavController(navController)
+            itemIconTintList = null
 
-        Log.d(TAG, "Selected: ${navView?.selectedItemId}")
+            Log.d(TAG, "Destination: ${navController.currentDestination?.label.toString()}")
+        }
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.label){
+                "Nawafil" -> {
+                    changeActionBar(getString(R.string.bar_nawafil_text1), getString(R.string.bar_nawafil_text2), back = false, title = true)
+                }
+
+                "Halaqah" -> {
+                    changeActionBar(getString(R.string.bar_halaqah_text1), getString(R.string.bar_halaqah_text2), back = true, title = true)
+                }
+
+                "Profile" -> {
+                    changeActionBar(getString(R.string.bar_profile_text1), getString(R.string.bar_profile_text2), back = true, title = true)
+                }
+            }
+        }
     }
 
     private fun setupActionBar(){
         this.supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar!!.setDisplayShowCustomEnabled(true)
         supportActionBar!!.setCustomView(R.layout.custom_action_bar)
-        title = findViewById(R.id.layout_title)
-        back = findViewById(R.id.btBack)
-        text1 = findViewById(R.id.tv_title_1)
-        text2 = findViewById(R.id.tv_title_2)
-        title.visibility = View.VISIBLE
-        text1.text = "Nawafil "
-        text2.text = "Hidayatullah"
-        //todo: set all string res for action bar title
     }
 
+    @Suppress("SameParameterValue")
+    private fun changeActionBar(text1: String, text2: String, back: Boolean = false, title: Boolean = true){
+        val layoutTitle: LinearLayout = findViewById(R.id.layout_title)
+        val btBack: ImageView  = findViewById(R.id.btBack)
+        val tvText1: TextView = findViewById(R.id.tv_title_1)
+        val tvText2: TextView = findViewById(R.id.tv_title_2)
 
+        if (back){
+            btBack.visibility = VISIBLE
+        }else{
+            btBack.visibility = GONE
+        }
+
+        if (title){
+            layoutTitle.visibility = VISIBLE
+        }else{
+            layoutTitle.visibility = GONE
+        }
+
+        tvText1.text = text1
+        tvText2.text = text2
+    }
 
     private fun loading(isLoading: Boolean){
         binding?.apply {
             if(isLoading){
-                pbHome.visibility = View.VISIBLE
+                pbHome.visibility = VISIBLE
             }else{
-                pbHome.visibility = View.GONE
+                pbHome.visibility = GONE
             }
         }
     }
