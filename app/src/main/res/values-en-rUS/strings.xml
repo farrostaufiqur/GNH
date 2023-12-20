@@ -1,0 +1,158 @@
+<resources>
+    <string name="app_name">Gerakan Nawafil Hidayatulah</string>
+
+    <string name="welcome">Welcome to Nawafil Hidayatullah App</string>
+    <string name="app_desc">Applications that provide information services and support daily worship activities</string>
+    <string name="iv_desc_logo">App Logo</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+
+    <string name="iv_preview">Photo preview</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+
+    <string name="username">Username</string>
+    <string name="username_here">Your username</string>
+    <string name="empty_username">Please enter your username</string>
+
+    <string name="name">Name</string>
+    <string name="name_here">Your Name</string>
+    <string name="empty_name">Please enter your name</string>
+
+    <string name="password">Password</string>
+    <string name="password_here">Your Password</string>
+    <string name="empty_password">Please enter your password</string>
+    <string name="not_same_password">Please enter your password</string>
+
+    <string name="confirm_pass">Retype Password</string>
+    <string name="confirm_pass_here">Retype Your Password</string>
+
+    <string name="click_register">Didn\'t Have an Account? Register Here</string>
+    <string name="click_login">Have Registered? Login Here</string>
+
+    <string name="login_success">Login is Success</string>
+    <string name="login_failed">Login is failed</string>
+
+    <string name="register_success">Register is Success</string>
+    <string name="register_failed">Register is failed</string>
+    <string name="unknown_problem">Unknown Problem</string>
+
+    <string name="bar_nawafil_text1">Daily </string>
+    <string name="bar_nawafil_text2">Nawafil</string>
+    <string name="bar_halaqah_text1">Group  </string>
+    <string name="bar_halaqah_text2">Halaqah</string>
+    <string name="bar_profile_text1">Profile &amp;</string>
+    <string name="bar_profile_text2">Settings</string>
+
+    <string name="nawafil_count">Nawafil Count\n(No Permit Half Yes)</string>
+    <string name="tv_nawafil_title_text">Nawafil Harian : </string>
+    <string name="spinner_desc">This is spinner image</string>
+
+    <string name="halaqah_name_empty">Halaqah name is empty</string>
+    <string name="halaqah_id_empty">Halaqah id is empty</string>
+    <string name="iv_halaqah_profile_desc">This is profile of each user</string>
+
+    <string name="tv_profile_name_text">Hi, </string>
+    <string name="tv_profile_date_join_text">Joined since: </string>
+
+    <string name="open_gallery">Choose a Picture</string>
+
+    <string name="settings">Settings</string>
+    <string name="logout">Log Out</string>
+    <string name="iv_arrow_logout_desc">This is log out</string>
+
+    <string name="chose_lang">Choose Your Language</string>
+    <string name="enter">Enter</string>
+
+    <string name="pray_and_dzikir">Pray &amp; Dzikir</string>
+    <string name="hijriah_calender">Hijriah Calendar</string>
+    <string name="murobbi_consultation">Murobbi Consultation</string>
+    <string name="qibla">Qibla</string>
+    <string name="tasbih">Tasbih</string>
+    <string name="article">Article &amp; News</string>
+    <string name="quran">Al Quran</string>
+    <string name="shalat">Shalat</string>
+    <string name="profile">Profile</string>
+    <string name="maximize_menus">Maximize</string>
+    <string name="minimize_menus">Minimize</string>
+
+    <string name="full">Yes</string>
+    <string name="half">Half</string>
+    <string name="permit">Permit</string>
+    <string name="no">No</string>
+
+    <string name="nawafil">Daily Nawafil</string>
+
+    <string name="fardhu">Fardhu</string>
+    <string name="subuh">Subuh</string>
+    <string name="dzuhur">Dzuhur</string>
+    <string name="ashar">Ashar</string>
+    <string name="maghrib">Maghrib</string>
+    <string name="isya">Isya</string>
+
+    <string name="tahajjud">Tahajjud</string>
+    <string name="witir">Witir</string>
+
+    <string name="sunnah_rawatib">Sunnah Rawatib</string>
+    <string name="qo_subuh">Qobliyyah Subuh</string>
+    <string name="qo_dzuhur">Qobliyyah Dzuhur</string>
+    <string name="ba_dzuhur">Ba\'diyyah Dzuhur</string>
+    <string name="ba_maghrib">Ba\'diyyah Maghrib</string>
+    <string name="ba_isya">Ba\'diyyah Isya</string>
+
+    <string name="dzikir">Dzikir/Wirid</string>
+    <string name="morning_dzikir">Morning Dzikir</string>
+    <string name="evening_dzikir">Evening Dzikir</string>
+    <string name="night_dzikir">Night Dzikir</string>
+
+    <string name="other">Other</string>
+    <string name="tilawah_quran">Tilawah Quran</string>
+    <string name="infaq">Infaq</string>
+    <string name="salat_dhuha">Salat Dhuha</string>
+    <string name="preaching">Fardiyah Preaching</string>
+
+    <string name="submit">Submit</string>
+
+    <string name="bot_nav_quran">Al Quran</string>
+    <string name="bot_nav_shalat">Shalat</string>
+    <string name="bot_nav_home">Home</string>
+    <string name="bot_nav_article">Article</string>
+    <string name="bot_nav_profile">Profile</string>
+
+    <string name="guest">Without Account</string>
+
+    <string name="retry">Retry</string>
+
+    <string name="date_asc">Date ↑</string>
+    <string name="date_desc">Date ↓</string>
+    <string name="name_asc">Name ↑</string>
+    <string name="name_desc">Name ↓</string>
+    <string name="created_asc">Created ↑</string>
+    <string name="created_desc">Created ↓</string>
+    <!--<string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>-->
+
+    <string name="todo">TODO</string>
+    <string name="date_joined">Date Joined</string>
+    <string name="name_halaqah">Halaqah Name</string>
+    <string name="id_halaqah">Halaqah ID</string>
+    <string name="murobbi_mutarobbi">Murobbi/Mutarobbi</string>
+    <string name="date_created">Date Created</string>
+    <string name="count_member">Count Member</string>
+    <string name="join_halaqah">Join Halaqah</string>
+    <string name="hint_halaqah_id">10 Character</string>
+    <string name="join">Join</string>
+    <string name="create_halaqah">Create Halaqah</string>
+    <string name="halaqah_name">Halaqah Name</string>
+    <string name="hint_halaqah_name">Your halaqah name</string>
+    <string name="create">Create</string>
+    <string name="capture_image">Capture Image</string>
+    <string name="flip_camera">Flip Camera</string>
+</resources>
